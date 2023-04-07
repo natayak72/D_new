@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
+    'sign.apps.SignConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -138,7 +139,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/login/'
-
+LOGIN_REDIRECT_URL = '/news'
 
 SITE_ID = 1
 

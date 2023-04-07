@@ -1,13 +1,13 @@
 <div>
-            {% if request.user.is_authenticated %}
+    {% if request.user.is_authenticated %}
         <div>
-{#            <button> <a href="{% url 'logout' %}">Выйти</a> </button>#}
-            <button> <a href="#">Выйти</a> </button>
+            <button> <a href="{% url 'logout' %}">Выйти</a> </button>
+{#            <button> <a href="#">Выйти</a> </button>#}
         </div>
             {% else %}
         <div>
-{#            <button> <a href="{% url 'login' %}">Войти</a> </button>#}
-            <button> <a href="#">Войти</a> </button>
+            <button> <a href="{% url 'login' %}">Войти</a> </button>
+{#            <button> <a href="#">Войти</a> </button>#}
         </div>
     {% endif %}
 </div>
