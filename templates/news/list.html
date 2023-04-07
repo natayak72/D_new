@@ -10,8 +10,8 @@
                 {% for news in news_list %}
                     <li>
                     <a href="{% url 'news_item' news.id %}"> {{ news.header }} ({{ news.create_datetime }}) {{ news.preview }} </a>
-{#                    <a href="{% url 'news_update' news.id %}">Редактировать</a>#}
-{#                    <a href="{% url 'news_delete' news.id %}">Удалить</a>#}
+                    <a href="{% url 'news_update' news.id %}">Редактировать</a>
+                    <a href="{% url 'news_delete' news.id %}">Удалить</a>
                     </li>
                 {% endfor %}
             </ol>

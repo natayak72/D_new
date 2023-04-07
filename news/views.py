@@ -1,8 +1,14 @@
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import DeleteView, ListView, DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 from .forms import PostCreateForm
 # Create your views here.
+
+
+class NewsDelete(DeleteView):
+    queryset = Post.objects.all()
+    template_name = 'news/delete.html'
+    success_url = '/news/'
 
 
 class NewsInstance(DetailView):
@@ -37,3 +43,12 @@ class NewsCreate(ListView):
         context = super().get_context_data(**kwargs)
         context['form'] = PostCreateForm
         return context
+
+
+class NewsUpdate(UpdateView):
+    model = Post
+    template_name = 'news/create.html'
+    form_class = PostCreateForm
+
+    def get_object(self, queryset=None):
+        return Post.objects.get(id=self.kwargs.get('pk'))
