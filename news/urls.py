@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
-from .views import IndexView
+from .views import NewsList
 
 urlpatterns = [
-    path('', IndexView.as_view()),
+    path('', NewsList.as_view()),
 ]

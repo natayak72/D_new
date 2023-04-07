@@ -3,9 +3,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 # Create your views here.
 
-class IndexView(LoginRequiredMixin, TemplateView):
-    template_name = 'news/index.html'
-
 
 class NewsList(ListView):
     model = Post

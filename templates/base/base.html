@@ -9,8 +9,11 @@
             <h3>Пользователь {{request.user.username}}</h3>
             {% include 'base/login_btns.html' %}
             {% include 'base/nav.html' %}
+
+{#            --------------------------------------------------  content  #}
             {% block content %}
             {% endblock content %}
+{#            -------------------------------------------------- // content  #}
         {% endblock body %}
         {% block extra_body %}
             <h4>Extra_body</h4>
