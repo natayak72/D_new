@@ -2,8 +2,19 @@ from django.views.generic import DeleteView, ListView, DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 from .forms import PostCreateForm
+from .filters import NewsFilter
 # Create your views here.
 
+
+class NewsSearch(ListView):
+    model = Post
+    template_name = 'news/search.html'
+    context_object_name = 'news'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['filter'] = NewsFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 class NewsDelete(DeleteView):
     queryset = Post.objects.all()
