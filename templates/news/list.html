@@ -1,4 +1,5 @@
 {% extends 'base/../base.html' %}
+{% load custom_filters %}
 
 {% block title %} Посты {% endblock title %}
 
@@ -9,7 +10,7 @@
             <ol>
                 {% for news in news_list %}
                     <li>
-                    <a href="{% url 'news_item' news.id %}"> {{ news.header }} ({{ news.create_datetime }}) {{ news.preview }} </a>
+                    <a href="{% url 'news_item' news.id %}"> {{ news.header|censor }} ({{ news.create_datetime }}) {{ news.preview|censor }} </a>
                     <a href="{% url 'news_update' news.id %}">Редактировать</a>
                     <a href="{% url 'news_delete' news.id %}">Удалить</a>
                     </li>

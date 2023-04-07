@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block title %} Поиск {% endblock title %}
 
@@ -25,7 +26,7 @@
         {% for post in filter.qs %}
         <tr>
             <td>{{ post.create_datetime }}</td>
-            <td>{{ post.header }}</td>
+            <td>{{ post.header|censor }}</td>
             <td>{{ post.author }}</td>
         </tr>
         {% endfor %}

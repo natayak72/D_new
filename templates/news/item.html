@@ -1,5 +1,6 @@
 <!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block title %}
 Пост {{ news.pk }}
@@ -7,8 +8,8 @@
 
 
 {% block content %}
-<h1>{{ news.header }}</h1>
-<p>{{ news.text }}</p>
+<h1>{{ news.header|censor }}</h1>
+<p>{{ news.text|censor }}</p>
 <p>{{ news.create_datetime|date:'d-M-Y h:m' }}</p>
 
 {% endblock content %}
