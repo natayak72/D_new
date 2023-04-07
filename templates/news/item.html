@@ -1,0 +1,14 @@
+<!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
+{% extends 'base.html' %}
+
+{% block title %}
+Пост {{ news.pk }}
+{% endblock title %}
+
+
+{% block content %}
+<h1>{{ news.header }}</h1>
+<p>{{ news.text }}</p>
+<p>{{ news.create_datetime|date:'d-M-Y h:m' }}</p>
+
+{% endblock content %}

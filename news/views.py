@@ -1,7 +1,14 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 # Create your views here.
+
+
+class NewsInstance(DetailView):
+    model = Post
+    template_name = 'news/item.html'
+    context_object_name = 'news'
+    queryset = Post.objects.all()
 
 
 class NewsList(ListView):
