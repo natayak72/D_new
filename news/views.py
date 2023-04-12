@@ -16,7 +16,8 @@ class NewsSearch(ListView):
         context['filter'] = NewsFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
-class NewsDelete(DeleteView):
+
+class NewsDelete(LoginRequiredMixin, DeleteView):
     queryset = Post.objects.all()
     template_name = 'news/delete.html'
     success_url = '/news/'
@@ -40,12 +41,14 @@ class NewsList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        context['is_not_author'] = not self.request.user.groups.filter(name='authors').exists()
+
         # TODO context['filter'] = NewsFilter(self.request.GET, queryset=self.get_queryset())
 
         return context
 
 
-class NewsCreate(ListView):
+class NewsCreate(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'news/create.html'
     form_class = PostCreateForm
@@ -56,7 +59,7 @@ class NewsCreate(ListView):
         return context
 
 
-class NewsUpdate(UpdateView):
+class NewsUpdate(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = 'news/create.html'
     form_class = PostCreateForm

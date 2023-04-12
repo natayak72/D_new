@@ -4,7 +4,7 @@
 {% block title %} Посты {% endblock title %}
 
 {% block content %}
-    {% if user.is_authenticated %}
+{#    {% if user.is_authenticated %}#}
         <div>
             <h1>Посты:</h1>
             <ol>
@@ -46,9 +46,11 @@
             {% endif %}
         </div>
 
-        {% else %}
-        <div>
-            <h4>Для показа постов надо авторизоваться</h4>
-        </div>
-    {% endif %}
+{#        {% else %}#}
+{#        <div>#}
+{#            <h4>Для показа постов надо авторизоваться</h4>#}
+{#        </div>#}
+{#    {% endif %}#}
+
+
 {% endblock content %}
