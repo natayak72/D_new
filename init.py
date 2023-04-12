@@ -1,5 +1,5 @@
 # До включения консоли:
-# pip install -r requirenments.txt
+# pip install -r requirements.txt
 # python manage.py createsuperuser
 import time
 
